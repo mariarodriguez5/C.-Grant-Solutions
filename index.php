@@ -1,3 +1,18 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "munoz.joalex@gmail.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $business = $_POST['business'];
+    $subject = "Form submission";
+    $message = $name . ", business=" . $business . " wrote the following:" . "\n\n" . $_POST['message'];
+    $headers = "From:" . $from;
+
+    mail($to,$subject,$message,$headers);
+    echo "Mail Sent. Thank you, we will contact you shortly.";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +22,7 @@
     <meta name="description" content="Start your development with Rubic landing page." />
     <meta name="author" content="Devcrud" />
     <title>
-        Capital Grant Solutions | Grant Writing and Training | Research for
-        Funding
+        Capital Grant Solutions | Grant Writing and Training | Research for Funding
     </title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css" />
@@ -66,28 +80,29 @@
                             online consultation at your earliest convenience. We look
                             forward to hearing from you!
                         </p>
-                        <button class="btn btn-outline-light btn-flat">
-                            Whatsapp Button Here
-                        </button>
+                        <a rel="noopener" class="btn btn-outline-light btn-flat" data-ux-btn="external" data-ux="ButtonExternal" href="https://wa.me/14357314118" target="_blank" data-aid="CONTACT_INFO_WHATS_APP_REND" data-tccl="ux2.contact.whatsapp.click,click" icon="whatsApp" data-typography="false" class="x-el x-el-a c1-6w c1-bn c1-c c1-6o c1-bo c1-bp c1-8x c1-6z c1-15 c1-3p c1-3l c1-3m c1-3n c1-3o c1-bq c1-br c1-bs c1-bt c1-bu c1-bv c1-2v c1-6y c1-16 c1-1n c1-2u c1-1j c1-1i c1-s c1-70 c1-71 c1-72 c1-73 c1-74 c1-75 c1-1 c1-2 c1-bw c1-bx c1-by c1-bz c1-c0 c1-c1 c1-7c c1-c2 c1-c3 c1-c4 c1-c5"><span data-ux="Element" class="x-el x-el-span c1-c c1-bo c1-s c1-c6 c1-1z c1-2s c1-2t"><span data-ux="Element" class="x-el x-el-span c1-c7 c1-c8 c1-6a c1-c9 c1-6c c1-ca c1-cb c1-cc c1-cd c1-bo c1-c"><svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px" data-ux="Icon" class="x-el x-el-svg c1-6n c1-37 c1-38 c1-bo c1-c"><svg viewBox="0 0 496 497"><defs><linearGradient id="a" x1="247.32" x2="247.32" y1="446.09" y2="39.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#20b038"></stop><stop offset="1" stop-color="#60d66a"></stop></linearGradient><linearGradient id="b" x1="247.32" x2="247.32" y1="453.37" y2="32.61" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f9f9f9"></stop><stop offset="1" stop-color="#fff"></stop></linearGradient></defs><path d="M37.88 453.37l29.59-108A208 208 0 0 1 39.63 241.1c0-115 93.6-208.49 208.56-208.49a208.57 208.57 0 0 1 208.57 208.66c-.05 115-93.62 208.49-208.57 208.49h-.08a208.41 208.41 0 0 1-99.67-25.38zm115.68-66.73l6.34 3.75a173.18 173.18 0 0 0 88.23 24.16h.06c95.55 0 173.31-77.75 173.35-173.3A173.34 173.34 0 0 0 248.26 67.83c-95.62 0-173.38 77.73-173.42 173.28a172.94 172.94 0 0 0 26.5 92.23l4.13 6.55L88 403.84z"></path><path fill="url(#a)" d="M45.13 446.09l28.57-104.3a200.82 200.82 0 0 1-26.88-100.62c0-111 90.36-201.27 201.34-201.27A201.35 201.35 0 0 1 449.5 241.32c0 111-90.37 201.28-201.33 201.28h-.09a201.31 201.31 0 0 1-96.21-24.49z"></path><path fill="url(#b)" d="M37.88 453.37l29.59-108A208 208 0 0 1 39.63 241.1c0-115 93.6-208.49 208.56-208.49a208.57 208.57 0 0 1 208.57 208.66c-.05 115-93.62 208.49-208.57 208.49h-.08a208.41 208.41 0 0 1-99.67-25.38zm115.68-66.73l6.34 3.75a173.18 173.18 0 0 0 88.23 24.16h.06c95.55 0 173.31-77.75 173.35-173.3A173.34 173.34 0 0 0 248.26 67.83c-95.62 0-173.38 77.73-173.42 173.28a172.94 172.94 0 0 0 26.5 92.23l4.13 6.55L88 403.84z"></path><path fill="#fff" d="M196.07 153.94c-3.91-8.68-8-8.85-11.73-9-3-.14-6.51-.13-10-.13a19.15 19.15 0 0 0-13.89 6.52c-4.78 5.22-18.24 17.82-18.24 43.46s18.67 50.42 21.28 53.9 36.05 57.77 89 78.66c44 17.36 53 13.91 62.53 13s30.83-12.61 35.18-24.78 4.34-22.59 3-24.77-4.78-3.48-10-6.08-30.83-15.22-35.61-16.95-8.25-2.61-11.73 2.61-13.45 16.94-16.5 20.42-6.08 3.92-11.29 1.31-22-8.11-41.9-25.86c-15.5-13.82-26-30.87-29-36.09s-.32-8 2.29-10.63c2.34-2.34 5.21-6.09 7.82-9.13s3.47-5.21 5.21-8.69.87-6.52-.44-9.13-11.35-28.34-15.98-38.64z"></path></svg></svg></span><span data-ux="Element" class="x-el x-el-span iconText c1-c c1-bo c1-5y c1-1n c1-ce c1-1z c1-2s c1-2t">Message us on WhatsApp</span></span></a>
                     </div>
                 </div>
-                <div class="col-md-5 d-none d-md-block">
+                <div class="col-md-5 d-none d-md-block" action="" method="post>
                     <form class="header-form">
                         <div class="head">Get in Touch.</div>
                         <div class="body">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name*" />
+                                <input type="text" class="form-control" placeholder="Name*" name="name" required/>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email*" />
+                                <input type="email" class="form-control" placeholder="Email*" name="email" required/>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Business Url or name" />
+                                <input type="text" class="form-control" placeholder="Business Url or name" name="business" />
                             </div>
                             <div class="form-group">
                                 <textarea rows="4"
                                     placeholder="Tell us about the areas of your business, school, nonprofit, or research that need support."
-                                    class="form-control"></textarea>
+                                    class="form-control"
+                                    name="message"
+                                    required>
+                                </textarea>
                             </div>
                         </div>
                         <div class="footer">
@@ -531,17 +546,14 @@
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="form-group pb-1">
-                            <input type="text" class="form-control" required placeholder="Name" />
+                            <input type="text" class="form-control" required placeholder="Name" name="name" />
                         </div>
                         <div class="form-group pb-1">
-                            <input type="email" class="form-control" required placeholder="Email" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" />
+                            <input type="email" class="form-control" required placeholder="Email" name="email" />
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <textarea name="" id="" cols="" rows="7" class="form-control" required
+                        <textarea name="message" id="" cols="" rows="7" class="form-control" required
                             placeholder="Message"></textarea>
                     </div>
                 </div>
