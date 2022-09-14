@@ -1,15 +1,15 @@
 <?php 
-if(isset($_POST['submit'])){
-    $to = "munoz.joalex@gmail.com"; // this is your Email address
-    $from = $_POST['email']; // this is the sender's Email address
-    $name = $_POST['name'];
-    $business = $_POST['business'];
-    $subject = "Form submission";
-    $message = $name . ", business=" . $business . " wrote the following:" . "\n\n" . $_POST['message'];
-    $headers = "From:" . $from;
+    if(isset($_POST['submit'])){
+        $to = "jlatham247@yahoo.com"; // this is your Email address
+        $from = $_POST['email']; // this is the sender's Email address
+        $name = $_POST['name'];
+        $business = $_POST['business'];
+        $subject = "Form submission";
+        $message = "Name: " . $name . "\n" . "Business: " . $business . "\n" . "Email: " . $from . "\n\n" . "Message: " . $_POST['message'];
+        $headers = "From:" . $from;
 
-    mail($to,$subject,$message,$headers);
-    echo "Mail Sent. Thank you, we will contact you shortly.";
+        mail($to,$subject,$message,$headers);
+        echo '<script>alert("Mail Sent. Thank you, we will contact you shortly.")</script>';
     }
 ?>
 
@@ -19,8 +19,8 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Start your development with Rubic landing page." />
-    <meta name="author" content="Devcrud" />
+    <meta name="description" content="Grant Writing and Training & Research for Funding" />
+    <meta name="author" content="Capital Grant Solutions" />
     <title>
         Capital Grant Solutions | Grant Writing and Training | Research for Funding
     </title>
@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
                 <div class="col-md-5 d-none d-md-block" >
-                    <form class="header-form" action="" method="post">
+                    <form class="header-form" method="post" enctype="multipart/form-data" action="">
                         <div class="head">Get in Touch.</div>
                         <div class="body">
                             <div class="form-group">
@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
                             </div>
                         </div>
                         <div class="footer">
-                            <button class="btn btn-primary btn-block">Get Started</button>
+                            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Get Started"/>
                         </div>
                     </form>
                 </div>
@@ -542,7 +542,7 @@ if(isset($_POST['submit'])){
     <section class="section" id="contact">
         <div class="container text-center">
             <h6 class="display-4 has-line">CONTACT US</h6>
-            <form action="" method="post">
+            <form method="post" enctype="multipart/form-data" action="">
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="form-group pb-1">
@@ -551,13 +551,16 @@ if(isset($_POST['submit'])){
                         <div class="form-group pb-1">
                             <input type="email" class="form-control" required placeholder="Email" name="email" />
                         </div>
+                        <div class="form-group pb-1">
+                        <input type="text" class="form-control" placeholder="Business Url or name" name="business" />
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <textarea name="message" id="" cols="" rows="7" class="form-control" required
                             placeholder="Message"></textarea>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Send Message" />
+                <input type="submit" name="submit" class="btn btn-primary btn-block" value="Send Message" />
             </form>
         </div>
     </section>

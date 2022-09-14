@@ -587,6 +587,10 @@ pre code {
   }
 }
 
+[class^="ti-"] {
+  line-height: 2 !important;
+}
+
 .container-fluid {
   width: 100%;
   padding-right: 15px;
